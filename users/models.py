@@ -10,9 +10,6 @@ class CustomUser(AbstractUser):
     USERNAME_FIELD = "email"
 
 class Employee(models.Model):
-
-
-
     user_id = models.ForeignKey(CustomUser)
     region = models.CharField(max_length=256, null=True)
     birth_date = models.DateField(null=True)
