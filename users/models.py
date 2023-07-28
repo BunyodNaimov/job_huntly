@@ -8,3 +8,12 @@ class CustomUser(AbstractUser):
     phone = models.PositiveIntegerField(max_length=15, null=True, blank=True)
 
     USERNAME_FIELD = "email"
+
+class Employee(models.Model):
+
+
+
+    user_id = models.ForeignKey(CustomUser)
+    region = models.CharField(max_length=256, null=True)
+    birth_date = models.DateField(null=True)
+    gender = models.CharField(max_length=50, default="male")
