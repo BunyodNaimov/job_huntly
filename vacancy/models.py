@@ -10,5 +10,5 @@ class Vacancy(models.Model):
     overview = models.CharField(max_length=455)
     description = models.TextField(255)
     offer = models.TextField()
-    company_id = models.ForeignKey()
-    skills = models.ManyToManyField()
+    # company = models.ForeignKey(on_delete=models.CASCADE, related_name='company_vacancy')
+    # skills = models.ManyToManyField()
