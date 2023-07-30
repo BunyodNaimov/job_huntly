@@ -25,9 +25,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Online Store by BunyodNaimov",
-        default_version='modul_7',
-        description="Online Store API",
+        title="Job Huntly by Group Hacker",
+        default_version='modul_9',
+        description="Job Huntly API",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="naimov.bunyod2021@gmail.com"),
         license=openapi.License(name="PDP License"),
