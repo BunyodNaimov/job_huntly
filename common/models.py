@@ -1,5 +1,6 @@
 from django.db import models
 
+from company.models import Company
 from users.models import CustomUser
 
 
@@ -11,7 +12,7 @@ class Employee(models.Model):
 
 
 class Skills(models.Model):
-    name = models.CharField(unique=False, max_length=255, null=False)
+    name = models.CharField(max_length=255)
 
 
 class Experience(models.Model):
@@ -22,7 +23,7 @@ class Experience(models.Model):
 
     title = models.CharField(unique=True, max_length=255, null=False)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_experience')
-    # company = models.ForeignKey(Company, )
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="company_experience")
     from_a = models.CharField(unique=False, max_length=255, null=False)
     to = models.CharField(unique=False, max_length=255, null=False)
     type = models.CharField(max_length=50, choices=TypeChoice.choices)
