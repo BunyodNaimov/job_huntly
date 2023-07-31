@@ -16,21 +16,7 @@ class VacancyListCreateView(generics.ListCreateAPIView):
         return VacancyListSerializer
 
 
-class VacancytRetrieveView(generics.RetrieveAPIView):
-    queryset = Vacancy.objects.all()
-    serializer_class = VacancyListSerializer
-
-
-class VacancytUpdateView(generics.UpdateAPIView):
-    queryset = Vacancy.objects.all()
-    serializer_class = VacancyCreateSerializer
-
-
-class VacancyDeleteView(generics.DestroyAPIView):
-    queryset = Vacancy.objects.all()
-
-
-class VacancyDetailView(generics.RetrieveUpdateDestroyAPIView):
+class VacancyRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vacancy.objects.all()
     lookup_field = "slug"
 
