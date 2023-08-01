@@ -18,7 +18,6 @@ class VacancyListCreateView(generics.ListCreateAPIView):
 
 class VacancyRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vacancy.objects.all()
-    lookup_field = "slug"
 
     def get_serializer_class(self):
         if self.request.method in ["PUT", "PATCH"]:

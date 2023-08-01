@@ -5,5 +5,5 @@ from vacancy.views import VacancyListCreateView, VacancyRetrieveUpdateDeleteAPIV
 
 urlpatterns = [
     path("", VacancyListCreateView.as_view(), name="vacancy_list_create"),
-    path("<slug:slug>/", VacancyRetrieveUpdateDeleteAPIView.as_view(), name="vacancy_detail")
+    path("<int:pk>/", VacancyRetrieveUpdateDeleteAPIView.as_view(), name="vacancy_detail")
 ]
