@@ -10,8 +10,7 @@ class VacancyListSerializer(serializers.ModelSerializer):
 
 
 class VacancyCreateSerializer(serializers.ModelSerializer):
-    slug = serializers.SlugField(required=False)
-
     class Meta:
         model = Vacancy
-        fields = ["title", "experience", "level", "job_type", "salary", "overview", "description", "offer"]
+        fields = ["id", "title", "experience", "level", "job_type", "salary", "overview", "description", "offer"]
+        read_only_fields = ("id",)
