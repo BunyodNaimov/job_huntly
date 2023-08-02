@@ -16,9 +16,9 @@ class Skills(models.Model):
 
 
 class Experience(models.Model):
-    class TypeChoice(models.TextChoices):
-        PART_TIME = "Part time"
+    class JobType(models.TextChoices):
         FULL_TIME = "Full time"
+        PART_TIME = "Part time"
         HYBRID = "Hybrid"
 
     title = models.CharField(unique=True, max_length=255, null=False)
@@ -26,11 +26,9 @@ class Experience(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="company_experience")
     from_a = models.DateField(unique=False, max_length=255, null=False)
     to = models.DateField(unique=False, max_length=255, null=False)
-    type = models.CharField(max_length=50, choices=TypeChoice.choices)
+    type = models.CharField(max_length=50, choices=JobType.choices, default=JobType.FULL_TIME)
     description = models.TextField(max_length=500, null=True)
-    skills = models.ForeignKey(
-        Skills, on_delete=models.CASCADE, choices=TypeChoice.choices, default=TypeChoice.FULL_TIME
-    )
+    skills = models.ManyToManyField(Skills)
 
 
 class University(models.Model):
