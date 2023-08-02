@@ -31,3 +31,12 @@ class Experience(models.Model):
     skills = models.ForeignKey(
         Skills, on_delete=models.CASCADE, choices=TypeChoice.choices, default=TypeChoice.FULL_TIME
     )
+class University(models.Model):
+    name = models.CharField(max_length=255)
+    logo = models.ImageField()
+
+class Education(models.Model):
+
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_experience')
+    from_a = models.CharField(unique=False, max_length=255, null=False)
+    to = models.CharField(unique=False, max_length=255, null=False)
