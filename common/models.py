@@ -24,19 +24,21 @@ class Experience(models.Model):
     title = models.CharField(unique=True, max_length=255, null=False)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_experience')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="company_experience")
-    from_a = models.CharField(unique=False, max_length=255, null=False)
-    to = models.CharField(unique=False, max_length=255, null=False)
+    from_a = models.DateField(unique=False, max_length=255, null=False)
+    to = models.DateField(unique=False, max_length=255, null=False)
     type = models.CharField(max_length=50, choices=TypeChoice.choices)
     description = models.TextField(max_length=500, null=True)
     skills = models.ForeignKey(
         Skills, on_delete=models.CASCADE, choices=TypeChoice.choices, default=TypeChoice.FULL_TIME
     )
+
+
 class University(models.Model):
     name = models.CharField(max_length=255)
     logo = models.ImageField()
 
-class Education(models.Model):
 
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_experience')
+class Education(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_education')
     from_a = models.CharField(unique=False, max_length=255, null=False)
     to = models.CharField(unique=False, max_length=255, null=False)
