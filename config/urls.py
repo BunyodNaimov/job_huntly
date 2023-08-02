@@ -45,7 +45,8 @@ swagger_urls = [
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('vacancy/', include('vacancy.urls'))
+    path('vacancy/', include('vacancy.urls')),
+    path('users/', include('users.urls'))
 ]
 
 urlpatterns += swagger_urls
